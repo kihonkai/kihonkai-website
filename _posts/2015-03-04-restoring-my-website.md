@@ -2,12 +2,12 @@
 layout: post
 ---
 
-Back in early November 2014 I received an email from my web host (current at the time) about a serious vulnerability affecting Drupal, the following pages from the Drupal website explain it:
+Back in early November 2014 I received an email from my web host (current at the time though I've swapped now) about a serious vulnerability affecting Drupal, the following pages from the Drupal website explain it:
 
 - <https://www.drupal.org/SA-CORE-2014-005>
 - <https://www.drupal.org/PSA-2014-003>
 
-Since I didn't find out about this until about 2 weeks after the patch was released, I had to assume my website had been compromised. I took the website down as soon as I heard about this and made a local copy of older backups. The recommended solution is to restore a backup from before the patch release date.
+I didn't find out about this until about 2 weeks after the patch had been released, I had to assume my website had been compromised. I took the website down as soon as I could and made a local copy of older backups. The recommended solution is to restore a backup from before the patch release date.
 
 I'd hardly been using the website and I'd certainly not been making very good use of all the features Drupal has to offer. I was basically using it for a personal blog.
 
