@@ -1,0 +1,48 @@
+---
+layout: post
+title: Linux cron, symlinks and permissions
+date: 2011-06-28 21:07:23
+date_changed: 2011-06-28 21:07:23
+permalink: /content/linux-cron-symlinks-and-permissions/
+---
+
+<div class="node" id="node-11">
+ <div id="section-node-body">
+  <p>
+   Yet another tough issue with Linux. I watched dcron for cronie as it seems that is a recommended step. But then I couldn't run some scripts. I had to create links in the /etc/cron.d/hourly folder and it didnt work. I eventually found that it was using the run-parts command and that had a test mode. That further lead me to find that I could not use filenames with extensions and I had to make sure the files had execute permission.
+  </p>
+  <p>
+   The python files were even worse, they needed the shebag adding and the windows line end removing. I had to use a command like this:
+  </p>
+  <p>
+   tr -d '\r' file.py
+  </p>
+  <p>
+   But I think it's working now. I just need to finish my monitoring scripts for the system status. Then I will be happier to leave the server on all the time.
+  </p>
+ </div>
+</div>
+<div id="section-node-tags">
+ <span class="tags-title">
+  Tags:
+ </span>
+ <span class="tags-tag">
+  Solved
+ </span>
+ |
+ <span class="tags-tag">
+  Linux
+ </span>
+ |
+ <span class="tags-tag">
+  Symlinks
+ </span>
+ |
+ <span class="tags-tag">
+  Cron
+ </span>
+ |
+ <span class="tags-tag">
+  Python
+ </span>
+</div>

@@ -1,0 +1,49 @@
+---
+layout: post
+title: XSLT and XHTML javascript script end tag
+date: 2011-06-19 20:45:14
+date_changed: 2011-06-19 20:45:14
+permalink: /content/xslt-and-xhtml-javascript-script-end-tag/
+---
+
+<div class="node" id="node-5">
+ <div id="section-node-body">
+  <p>
+   In my last post I talked about a jQuery error that I had come across. Maybe I should have posted this solution first. The Q&amp;A page I talked about is being backed by an XML file, I'm then using an XSLT file to generate XHTML from it. Maybe not the best option for what I want to do but it will work for now and I can learn some new things and put into practice other things I have some knowledge of.
+  </p>
+  <p>
+   So I was including jQuery, I setup a test XHTML page to prove the idea and that worked fine. But then I tried adding the java script into the XSLT, the page was generated but it seemed that jQuery was not being included. It turned out to be an issue with the XSLT generating the XHTML.
+  </p>
+  <p>
+   so from having this script:
+  </p>
+  <p>
+   &lt;script type="text/javascript" src="libs/jquery-1.6.1.min.js" &gt;&lt;/script&gt;
+  </p>
+  <p>
+   I had to change it to this:
+  </p>
+  <p>
+   &lt;script type="text/javascript" src="libs/jquery-1.6.1.min.js" &gt;
+   <br/>
+   &lt;![CDATA[ //Fake content to keep the end script tag ]]&gt;
+   <br/>
+   &lt;/script&gt;
+  </p>
+  <p>
+   The XSLT was always taking the fully closed end tag and creating the short form, but that was not valid for the script tag in XHTML. So I used this hack. Maybe not the best way but it works for now. I might eventually look at another way to store the data, but this should let me get the working solution done soon.
+  </p>
+ </div>
+</div>
+<div id="section-node-tags">
+ <span class="tags-title">
+  Tags:
+ </span>
+ <span class="tags-tag">
+  Javascript
+ </span>
+ |
+ <span class="tags-tag">
+  Solved
+ </span>
+</div>

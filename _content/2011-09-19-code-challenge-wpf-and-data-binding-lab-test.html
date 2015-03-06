@@ -1,0 +1,85 @@
+---
+layout: post
+title: Code Challenge - WPF and Data Binding - Lab test
+date: 2011-09-19 21:38:34
+date_changed: 2011-09-25 12:11:10
+permalink: /content/code-challenge-wpf-and-data-binding-lab-test/
+---
+
+<div class="node" id="node-71">
+ <div id="section-node-body">
+  <p>
+   So I've attempted the Visual Studio walk through lab that I spoke about in the
+   <a href="{{site.baseurl}}/content/code-challenge-first-try-wpf-and-data-binding">
+    post yesterday
+   </a>
+   .
+  </p>
+  <p>
+   My simple opinion of the labs idea built into Visual Studio, it's pointless, at least this one I tried. I use a dual screen setup so I move the Guidance Browser to one screen. so it was basically no different to a website. It adds a new project type into Visual Studio but you can as easily download a zip with that. It's includes an extra xml file in the solution level that's related to the guidance as well. Since it was from last year and I cannot easily find many of them I guess they didn't become more populate. If it had maybe been more interactive then it could have been different to just reading a website.
+  </p>
+  <p>
+   Anyway, at least the walk through content was fine. It offers a different way of thinking of a solution compared to what I'm use to with the Windows Forms development I've done so far.
+  </p>
+  <p>
+   The lab uses a Grid which I got to after trying the DockPanel. There are some similarities in how I did the XAML design, but I've noticed some things that I think are due my lack of experience with WPF. Here's the points I noticed:
+  </p>
+  <ul>
+   <li>
+    I had use extra Grid.Row and Grid.Column values when they were not required due to default value
+    <ul>
+     <li>
+      I think I was trying to make it clearer where I wanted controls, not sure if that's worth the extra typing and space used
+     </li>
+    </ul>
+   </li>
+   <li>
+    I still lack a complete understanding of the star grid units. That's something I need to test out more.
+   </li>
+   <li>
+    I had used a really simple version of the data binding. I need to read up and test more with the DataTemplate's and binding.
+   </li>
+   <li>
+    The lab core code is all in a separate class which is the better design and it still loads the items only on expanding like mine does
+   </li>
+   <li>
+    <p>
+     These are some of the main points I noticed. Though something I've just tried to search for and still cannot find a definite answer about it the way the lab example deals with the expanding on the TreeView and the data loading. It does not use any events, it seems that it just works automatically with the HierarchicalDataTemplate. But I cannot find a source to back this up in the MSDN documentation. I have found this
+     <a href="http://stackoverflow.com/questions/1912481/wpf-treeview-hierarchicaldatatemplate-binding-to-object-with-multiple-child-col">
+      stackoverflow post
+     </a>
+     that provides a good example so will try testing that when I get chance.
+    </p>
+    <p>
+     Some of this will likely become clearer as I develop more code using the WPF and the data binding. It's all quite new things compared to the standard Windows Forms, but it is designed to do very customizable things so it's going to take some work to get into it.
+    </p>
+    <p>
+     I had aimed to not load all the data up front as I almost expected the data binding to do this, but someone it doesn't which is nice to see. I can see that getting into the WPF coding will be a lot nicer to work with once I'm use to it.
+    </p>
+    <p>
+     I did upload the code into the BitBucket repository I created yesterday, but I just dumped the new solution in there. I'll probably continue to the use CodeChallenges for other small tests I want to try.
+    </p>
+   </li>
+  </ul>
+ </div>
+</div>
+<div id="section-node-tags">
+ <span class="tags-title">
+  Tags:
+ </span>
+ <span class="tags-tag">
+  CodeChallenge
+ </span>
+ |
+ <span class="tags-tag">
+  WPF
+ </span>
+ |
+ <span class="tags-tag">
+  .NET
+ </span>
+ |
+ <span class="tags-tag">
+  Programming
+ </span>
+</div>

@@ -1,0 +1,88 @@
+---
+layout: post
+title: WPF Data Validation
+date: 2011-10-02 11:10:03
+date_changed: 2011-10-02 11:10:46
+permalink: /content/wpf-data-validation/
+---
+
+<div class="node" id="node-82">
+ <div id="section-node-body">
+  <p>
+   Since I've read the section on
+   <a href="http://msdn.microsoft.com/en-us/library/ms752347.aspx#data_validation">
+    Data Validation
+   </a>
+   now I thought I would try out some testing code for it.
+  </p>
+  <p>
+   While the WPF does make some aspects of the validation work a lot easier it does seem to miss a few bits. Maybe it was decided to leave it out of the .NET framework so that different people can setup their own code.
+  </p>
+  <p>
+   To me one useful missed feature is an easy way to check the validation state on a whole window. I would want to be able to prevent submitting/saving of a new record if there were any errors. While Windows Forms does provide a summary control, nothing is provided by default in WPF. but I'm sure there are plenty of examples on the internet.
+  </p>
+  <p>
+   While searching I found the following posts:
+  </p>
+  <ol>
+   <li>
+    <a href="http://www.progware.org/Blog/post/Data-Validation-in-WPF.aspx">
+     Data Validation in WPF - By Ioannis
+    </a>
+   </li>
+   <li>
+    <a href="http://stackoverflow.com/questions/4215289/wpf-data-validation-of-submit-button">
+     WPF: data validation of submit button
+    </a>
+   </li>
+   <li>
+    <a href="http://stackoverflow.com/questions/4574304/wpf-validation-how-to-show-tooltips-and-disable-run-button">
+     wpf - validation - how to show tooltips and disable “run” button
+    </a>
+   </li>
+  </ol>
+  <p>
+   Link 1 is just a page that I think provides a reasonable explanation of data validation. Link 3 provides the code I used in my testing (see link below), I used the answer by TomBat with the MultiDataTrigger XAML to be able to disable the submit button. The problem with this solution is that it requires changing for each new value on the form. There are other examples of how to do this on the internet but this was a simple method. Link 2 provides a short list of some of the MVVM framework. I probably agree that using a framework like that might make dealing with these aspects of the WPF easier.
+  </p>
+  <p>
+   But I think gaining a understanding of how the underlying system works is important before I just use a framework to achieve the results I want.
+  </p>
+  <p>
+   Testing code can be found in the TestBed project WPF.My.DataBindings.Simple. The initial work is in the Validation001 window and Validation002 shows using a custom ValidationRule. The whole source can be found on BitBucket here:
+   <a href="https://bitbucket.org/kihonkai/testbed">
+    TestBed BitBucket page
+   </a>
+   .
+  </p>
+  <p>
+   I created a class named Note for this testing. When I first created it I only added the basic properties. Then I realised I need to implement INotifyPropertyChanged to be able to update the object in code and have it affect the UI. This highlights something I've noticed about the WPF, it often seems to require string literals. In this case property names. For now I've just use this, but I did find examples on the internet that used a lambda expression to avoid this.
+  </p>
+  <p>
+   Also I noticed that implementing the INotifyPropertyChanged interface added a lot of extra code to the class, this can be seen in this
+   <a href="https://bitbucket.org/kihonkai/testbed/diff/WPF.My.DataBindings.Simple/Note.cs?diff2=26db1b5d9597&amp;diff1=32c45adc8fdc">
+    BitBucket Diff
+   </a>
+   of the Note class. While it doesn't really matter how long a file is, it does make it harder to read in some ways. This is also without adding XML documentation comments.
+  </p>
+ </div>
+</div>
+<div id="section-node-tags">
+ <span class="tags-title">
+  Tags:
+ </span>
+ <span class="tags-tag">
+  WPF
+ </span>
+ |
+ <span class="tags-tag">
+  Programming
+ </span>
+ |
+ <span class="tags-tag">
+  .NET
+ </span>
+ |
+ <span class="tags-tag">
+  Data Validation
+ </span>
+</div>

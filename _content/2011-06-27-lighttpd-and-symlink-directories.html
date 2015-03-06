@@ -1,0 +1,45 @@
+---
+layout: post
+title: Lighttpd and symlink directories
+date: 2011-06-27 23:19:30
+date_changed: 2011-06-27 23:19:30
+permalink: /content/lighttpd-and-symlink-directories/
+---
+
+<div class="node" id="node-10">
+ <div id="section-node-body">
+  <p>
+   I had to setup Mercurial on my server today. I've started a small web project that I am using Bitbucket (
+   <a href="https://bitbucket.org/">
+    https://bitbucket.org/
+   </a>
+   ) to store (when it's at a decent state I will make it public).
+  </p>
+  <p>
+   So I had been working fine with TortoiseHg (
+   <a href="http://tortoisehg.bitbucket.org/">
+    http://tortoisehg.bitbucket.org/
+   </a>
+   ) on windows, I have ssh setup for connecting to Bitbucket. Thats all going fine. I had done the development work and needed to move it onto the server, then I realised I could not clone a sub directory line I would checkout one using Subverison. So since it's with Linux on the server I thought about symlinks. I moved my files around so the scripts are in one folder and the web accessible files are in another and setup a symlink. But it didnt work, I kept getting 403 errors.
+  </p>
+  <p>
+   It turned out it was because I had put the cloned repo in my home folder. The newly created folder had permissons that would let them access the files, but lighttpd user would not get through into my home directory. In the end I moved the folder out into its own folder. I created a top level folder /data that I am going to use for things like this. I don't think I have found move comments on the internet about this being a good or bad idea. Though I've not really looked, mostly you don't see much of people creating extra top level directories in /. Well it works for me. Now my files are shared and setup with Mercurial.
+  </p>
+ </div>
+</div>
+<div id="section-node-tags">
+ <span class="tags-title">
+  Tags:
+ </span>
+ <span class="tags-tag">
+  Solved
+ </span>
+ |
+ <span class="tags-tag">
+  Mercruial
+ </span>
+ |
+ <span class="tags-tag">
+  Lighttpd
+ </span>
+</div>

@@ -1,0 +1,70 @@
+---
+layout: post
+title: Avoiding Over-Architecting Software Development
+date: 2011-09-11 10:05:38
+date_changed: 2011-09-11 10:11:11
+permalink: /content/avoiding-over-architecting-software-development/
+---
+
+<div class="node" id="node-58">
+ <div id="section-node-body">
+  <p>
+   Over the last few months I've been reading up on software design and design patterns. My goal is to be able to develop well designed and easy to maintain software. So far I can see that creating software that is easy to change and well documented are two examples that can improve software, though this is a very simplified view of it.
+  </p>
+  <p>
+   In reality it can easily become far more complicated. Working on an application that uses a database is a good example. The language I'm primary using for this studying is C# .NET, with this you can easily query a database in many ways. But is can easily tie your program into a certain way and make it very hard to create unit tests, another good aspect of making more reliable software (if done well).
+  </p>
+  <p>
+   So I've been looking at options I can use for data access, I am currently working on learning how to use the Entity Framework 4.1 as this seems to solve some of the issues. the new release of the Entity Framework adds the ability they term Code-First. It lets you create and use Plain Old CLR Object (POCO) to define the model to be used. This along with other aspects of the design means that it is possible to unit test the data access code.
+  </p>
+  <p>
+   I have been wondering thought about choosing to use the Entity Framework. So far it seems I would be creating a solution that is tightly coupled to the Entity Framework which makes for a lot of hard work if I ever had a need to change the framework. So I did a bit of search about it today and found this post on StackOverflow
+  </p>
+  <p>
+   <a href="http://stackoverflow.com/questions/5401957/repository-pattern-with-entity-framework">
+    http://stackoverflow.com/questions/5401957/repository-pattern-with-entity-framework
+   </a>
+  </p>
+  <p>
+   The answer by Ladislav Mrnka nicly sums up the likelihood of ever needing this with the first paragraph:
+  </p>
+  <p>
+   "A repository is always dependent on data access technology. It is the reason why people are using repositories - to wrap data access dependency to separate layer. If you decide to change data access technology (imho it is like 1% chance that you do it) you will have to create new repositories implementing the same interfaces as former ones."
+  </p>
+  <p>
+   I went on to read through the blog post he linked to and some of the other pages it linked to. Here are the links:
+  </p>
+  <p>
+   <a href="http://ayende.com/blog/3955/repository-is-the-new-singleton">
+    http://ayende.com/blog/3955/repository-is-the-new-singleton
+   </a>
+   <br/>
+   <a href="http://davybrion.com/blog/2009/04/educate-developers-instead-of-protecting-them/">
+    http://davybrion.com/blog/2009/04/educate-developers-instead-of-protecting-them/
+   </a>
+   <br/>
+   <a href="http://ayende.com/blog/4784/architecting-in-the-pit-of-doom-the-evils-of-the-repository-abstraction-layer">
+    http://ayende.com/blog/4784/architecting-in-the-pit-of-doom-the-evils-of-the-repository-abstraction-layer
+   </a>
+  </p>
+  <p>
+   I found some of this to be quite an interesting read. It gives reason to avoid over complicating a design for no real reason. As such I am going to go ahead with the Entity Framework design so I can get my application created and see how it goes. Then I will have a better feel for how the framework works in practice and the possibilities of reuse or replacing.
+  </p>
+ </div>
+</div>
+<div id="section-node-tags">
+ <span class="tags-title">
+  Tags:
+ </span>
+ <span class="tags-tag">
+  Software Development
+ </span>
+ |
+ <span class="tags-tag">
+  Architecture
+ </span>
+ |
+ <span class="tags-tag">
+  Design Patterns
+ </span>
+</div>

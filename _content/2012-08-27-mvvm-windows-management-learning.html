@@ -1,0 +1,105 @@
+---
+layout: post
+title: MVVM Windows Management (Learning)
+date: 2012-08-27 12:44:57
+date_changed: 2012-08-27 12:44:57
+permalink: /content/mvvm-windows-management-learning/
+---
+
+<div class="node" id="node-91">
+ <div id="section-node-body">
+  <p>
+   Recently I've been looking into many of the diffeerent options for creating WPF application using the MVVM pattern/framework style. I do quite like the look of
+   <a href="http://caliburnmicro.codeplex.com/">
+    Caliburn Micro
+   </a>
+   but I have a couple of issues with that at the moment:
+  </p>
+  <ul>
+   <li>
+    Lack of Unit Tests: I saw a couple of comments saying that it is hard to create them but the
+    <a href="http://mvvmlight.codeplex.com/">
+     MVVM Light toolkit
+    </a>
+    has managed to create over 400. Though obviously quantity doesn't automatically mean quality. But I think it would be hard for a business to feel confident in using it without some testing system. This would easily be a whole discussion in its own right so I'll leave it at that.
+   </li>
+   <li>
+    Conversion over configuration: I like the idea and it makes the actual app code easier but I guess this could be one of the points that make this project harder to unit test. I also wonder if the amount of reflection it uses would risk causing performance issues in larger applications. Testing this would be the best way to have proof that there is no issue which would take time before I would be confidant in using it in a large application.
+   </li>
+  </ul>
+  <p>
+   Overall I think it looks to be a promising project that I may try out soon in a personal project. But I have a upcoming project at work that will be the first to use WPF. In this situation I don't think it would be good to use something that does not have any tests and I cannot find any projects that state they use it (closed or open source). I'm sure there are plenty out there but if I cannot find any examples then its hard to know how well it might work.
+  </p>
+  <p>
+   So I continued my searching. Today I've come across a few things that I think might help. The central part is that that I'm looking at using the MVVM Light toolkit since it has unit tests and is a simpler system. The following are areas that I am going to explore later when I have time:
+  </p>
+  <ol>
+   <li>
+    <a href="http://stackoverflow.com/questions/10849167/mvvm-light-toolkit-new-window">
+     http://stackoverflow.com/questions/10849167/mvvm-light-toolkit-new-window
+    </a>
+    <ul>
+     <li>
+      This post suggests looking at the
+      <a href="http://cinch.codeplex.com/documentation">
+       Cinch MVVM project's
+      </a>
+      services, in V2 that would be IUIVisualizerService for general windows but there are others that might be useful.
+     </li>
+    </ul>
+   </li>
+   <li>
+    <a href="http://stackoverflow.com/questions/10849167/mvvm-light-toolkit-new-window">
+     http://stackoverflow.com/questions/10849167/mvvm-light-toolkit-new-window
+    </a>
+    <ul>
+     <li>
+      This post suggests using the NotificationMessageAction class of MVVM Light for showing a window/dialog with access to the result.
+     </li>
+     <li>
+      I wonder if you might put this together with the service implementation to make it testable
+     </li>
+    </ul>
+   </li>
+   <li>
+    <a href="http://rachel53461.wordpress.com/2012/01/22/validating-business-rules-in-mvvm/#comments">
+     http://rachel53461.wordpress.com/2012/01/22/validating-business-rules-in...
+    </a>
+    <ul>
+     <li>
+      This is unrelated to the windows issue but I thought it might be useful. It talks about validation of data.
+     </li>
+     <li>
+      There is a comment on the page about how business rules should be in the model but still separate to the POCO data objects.
+     </li>
+     <li>
+      I've left it in since the
+      <a href="http://rachel53461.wordpress.com/">
+       blog
+      </a>
+      looks like it could have some useful content.
+     </li>
+    </ul>
+   </li>
+  </ol>
+  <p>
+   So I'm thinking of taking the service idea from Cinch and creating something useful in a test app using MVVM Light. Once I've got something I will post the source. I might go with a typical customer order system as it can be as simple or complex as you like and has good scope for including validation rules.
+  </p>
+ </div>
+</div>
+<div id="section-node-tags">
+ <span class="tags-title">
+  Tags:
+ </span>
+ <span class="tags-tag">
+  WPF
+ </span>
+ |
+ <span class="tags-tag">
+  MVVM
+ </span>
+ |
+ <span class="tags-tag">
+  Learning
+ </span>
+</div>

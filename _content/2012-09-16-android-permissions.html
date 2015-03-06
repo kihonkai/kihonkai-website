@@ -1,0 +1,71 @@
+---
+layout: post
+title: Android Permissions
+date: 2012-09-16 12:31:15
+date_changed: 2012-10-01 22:35:30
+permalink: /content/android-permissions/
+---
+
+<div class="node" id="node-93">
+ <div id="section-node-body">
+  <p>
+   For a long time now I've not liked the descriptions of many of the permissions for Android apps, I'm not going to get into detail as I don't have a lot of time. My most recent look at permissions came about while I'm looking at using Evernote. I noticed the app
+   <a href="https://play.google.com/store/apps/details?id=com.evernote.hello&amp;hl=en">
+    Evernote Hello
+   </a>
+   which does look interesting. What I don't like is that it has these permissions listed:
+  </p>
+  <p>
+   YOUR ACCOUNTS
+   <br/>
+   ACT AS AN ACCOUNT AUTHENTICATOR
+   <br/>
+   Allows the app to use the account authenticator capabilities of the AccountManager, including creating accounts and getting and setting their passwords.
+   <br/>
+   MANAGE THE ACCOUNTS LIST
+   <br/>
+   Allows the app to perform operations like adding and removing accounts, and deleting their password.
+  </p>
+  <p>
+   It's the part about being able to change/get passwords like sounds really bad to me. So I decided to do a bit of digging into the API regarding the
+   <a href="http://developer.android.com/reference/android/accounts/AccountManager.html">
+    AccountManager
+   </a>
+   . I found that it has this line along with the authenticator permissions:
+  </p>
+  <p>
+   This method requires the caller to hold the permission AUTHENTICATE_ACCOUNTS and to have the same UID as the added account's authenticator.
+  </p>
+  <p>
+   which basically means that for the most part that permission should not be so bad. I exported a list of apps to see what shared UIDs were used. The Evernote Hello app doesn't even share a UID with the main Evernote app. So I don't know what they use the permission for so I've submitted the question to the support desk.
+  </p>
+  <p>
+   The Manage accounts permission looks like it does not have the same restriction but deals with the local version of the account only. So deleting a password does not affect the account on whatever server (e.g. gmail or facebook).
+  </p>
+  <p>
+   But I wonder if using AccountManager.updateCredentials it would be possible to get a user to type a password into a spoof screen and log it. Mainly due to this part in the API docs:
+  </p>
+  <p>
+   "The Activity context to use for launching a new authenticator-defined sub-Activity to prompt the user to enter a password; used only to call startActivity(); if null, the prompt will not be launched directly, but the necessary Intent will be returned to the caller instead".
+  </p>
+  <p>
+   There's a good chance I'm being incredible paranoid about this with big companies like Evernote or Facebook. But it is certainly not a permission I would allow on an app from a random developer that I've never heard of before.
+  </p>
+ </div>
+</div>
+<div id="section-node-tags">
+ <span class="tags-title">
+  Tags:
+ </span>
+ <span class="tags-tag">
+  Android
+ </span>
+ |
+ <span class="tags-tag">
+  Permissions
+ </span>
+ |
+ <span class="tags-tag">
+  Evernote
+ </span>
+</div>

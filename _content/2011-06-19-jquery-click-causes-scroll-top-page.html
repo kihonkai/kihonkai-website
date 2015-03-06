@@ -1,0 +1,49 @@
+---
+layout: post
+title: jquery click causes scroll to top of page
+date: 2011-06-19 20:32:33
+date_changed: 2011-06-19 20:33:10
+permalink: /content/jquery-click-causes-scroll-top-page/
+---
+
+<div class="node" id="node-4">
+ <div id="section-node-body">
+  <p>
+   I was setting up a basic question/answer page, I thought to use jQuery to let the user toggle visibility of the answer. My thought is that you can't see the answer straight away so you have a decent change of thinking about it and learning it easier.
+  </p>
+  <p>
+   It was going well, until I had more than a single screen and it needed to scroll down, the link I had created for the toggle was scrolling to the top of the page. A quick google search found the issue. Basically I was using a hash in the url like this:
+  </p>
+  <p>
+   &lt;a href="#"&gt;Show Answer&lt;/a&gt;
+  </p>
+  <p>
+   I found that I needed to change it to this:
+  </p>
+  <p>
+   &lt;a href="javascript:void(0);"&gt;Show Answer&lt;/a&gt;
+  </p>
+  <p>
+   Here's the page that I found explaining it more:
+   <a href="http://jaredheinrichs.com/clicking-on-hyperlink-causes-page-to-jump-to-the-top.html">
+    http://jaredheinrichs.com/clicking-on-hyperlink-causes-page-to-jump-to-t...
+   </a>
+   .
+  </p>
+  <p>
+   I figured that lists solutions like this will give me something to look back on and an extra place for others to find the answer as well.
+  </p>
+ </div>
+</div>
+<div id="section-node-tags">
+ <span class="tags-title">
+  Tags:
+ </span>
+ <span class="tags-tag">
+  Solved
+ </span>
+ |
+ <span class="tags-tag">
+  jQuery
+ </span>
+</div>

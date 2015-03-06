@@ -1,0 +1,82 @@
+---
+layout: post
+title: .NET Entity Framework 4.1
+date: 2011-09-11 16:19:02
+date_changed: 2011-09-11 16:37:00
+permalink: /content/net-entity-framework-41/
+---
+
+<div class="node" id="node-59">
+ <div id="section-node-body">
+  <p>
+   I've spent some time today learning how to use the Entity Framework. Yesterday I skimmed over some of the content in the original
+   <a href="http://msdn.microsoft.com/en-us/library/bb399572.aspx">
+    Entity Framework section
+   </a>
+   of the MSDN Library to get a bit of a background information.
+  </p>
+  <p>
+   But today's work has been focused on the 4.1 updated as that is what I will be using. I've been through the content in the
+   <a href="http://msdn.microsoft.com/en-us/library/gg696172(v=VS.103).aspx">
+    Entity Framework 4.1 section
+   </a>
+   . Sometime in the last couple of years I ended up referring to the MSDN Library documentation more, I had found it to have improved greatly compared to when I had first starting to use it. I cannot recall when they changed the layout and organisation, but I think it's made it a lot more useful.
+  </p>
+  <p>
+   So far I've been through these sections:
+  </p>
+  <ul>
+   <li>
+    <a href="http://msdn.microsoft.com/en-us/library/gg696190(v=VS.103).aspx">
+     What's New
+    </a>
+   </li>
+   <li>
+    <a href="http://msdn.microsoft.com/en-us/library/gg696194(v=VS.103).aspx">
+     Getting Started with the Entity Framework 4.1
+    </a>
+   </li>
+   <li>
+    <a href="http://msdn.microsoft.com/en-us/library/gg696167(v=VS.103).aspx">
+     Querying Data
+    </a>
+   </li>
+   <li>
+    <a href="http://msdn.microsoft.com/en-us/library/gg197521(v=VS.103).aspx">
+     Binding Objects to Controls
+    </a>
+   </li>
+  </ul>
+  <p>
+   I've also covered most of the sub sections in these areas as well. The only two parts I have not looked at in these areas are the Azure and ASP.NET MVC pages. I have and don't want to setup a Azure account at the moment (though it could be an interesting thing to try someday) and I don't currently plan to use ASP.NET for this work so I will hold off on going through that testing.
+  </p>
+  <p>
+   All of the source I created can be found in my project on BitBucket named TestBed. I will use this for creating various testing projects so I can record the code. Here's the location
+   <a href="https://bitbucket.org/kihonkai/testbed">
+    https://bitbucket.org/kihonkai/testbed
+   </a>
+   .
+  </p>
+  <p>
+   I tried both the WinForms and WPF binding examples to see what the differences were. It's interesting to see that the WinForms example requires an extra class to be define over the WPF example, a small hint that the developers are focusing on the use of WPF rather than WinForms. But then the WPF example ignores the hiding of the extra ID columns and the fact that its missing a data navigation toolbar like the WinForms system has. I've noticed this before, the WPF can do some interesting things but is still a new technology. Therefore the designer support and controls available etc are still a bit lacking compared to the WinForms alternatives.
+  </p>
+  <p>
+   Though I do still intend to use a WPF application as it will make working with the newer framework coding easier than having to add extra custom parts to make it work with the older WinForms system. Over time the WPF will surely improve and become as easy to use as WinForms.
+  </p>
+  <p>
+   I've still got a few topics left to review in the Entity Framework 4.1 documentation, once I've been through that I'm going to get started on the InfoLog application.
+  </p>
+ </div>
+</div>
+<div id="section-node-tags">
+ <span class="tags-title">
+  Tags:
+ </span>
+ <span class="tags-tag">
+  Entity Framework
+ </span>
+ |
+ <span class="tags-tag">
+  .NET
+ </span>
+</div>

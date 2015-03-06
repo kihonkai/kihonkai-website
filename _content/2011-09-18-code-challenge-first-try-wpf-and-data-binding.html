@@ -1,0 +1,106 @@
+---
+layout: post
+title: Code Challenge - First try - WPF and Data Binding
+date: 2011-09-18 21:56:40
+date_changed: 2011-09-18 22:35:57
+permalink: /content/code-challenge-first-try-wpf-and-data-binding/
+---
+
+<div class="node" id="node-70">
+ <div id="section-node-body">
+  <p>
+   I happened to come across a walk through guide for WPF. It looks interesting as its a walk through that's built into Visual Studio. But before I just went ahead and followed it I felt like having a go at creating the application on my own. So I figured I would use the new Code Challenge, that way I can tag this entry and store it on BitBucket.
+  </p>
+  <p>
+   EDIT: I changed my mind on BitBucket, I decided to make it public. There's nothing more anoying than finding a post talking about code that doesn't provide a download. Though I have seem some places where it's not done to force you to think about it and write your own code to learn more. But in cases like this when I've not explained all the code I figure it's nicer to provide it. So here it is
+   <a href="https://bitbucket.org/kihonkai/codechallenges">
+    Code Challenge repository
+   </a>
+  </p>
+  <p>
+   The walk through can be found here
+   <a href="http://visualstudiogallery.msdn.microsoft.com/20dfcfd5-d763-4e9a-a8d7-f421e435622c/">
+    WPF Simple Application Walkthrough
+   </a>
+   .
+  </p>
+  <p>
+   The basic idea of the application is to list the folder in the "My Documents" folder. So I went ahead with only the screenshot and other content on that page to guide me.
+  </p>
+  <p>
+   These days I quite often turn to Google and the MSDN help to find out how to do something new in C#. In this case I am still quite new to WPF forms design so I had to look up a few things. I first attempted to create the layout using a DockPanel, so I had a go at setting it up (I've already tried it a bit and read about it so I had a rough idea how it works). But I could not quite get it working how the screenshot looked. The
+   <a href="http://msdn.microsoft.com/query/dev10.query?appId=Dev10IDEF1&amp;l=EN-US&amp;k=k(SYSTEM.WINDOWS.CONTROLS.DOCKPANEL);k(VS.XAMLEDITOR);k(TargetFrameworkMoniker-%22.NETFRAMEWORK%2cVERSION%3dV4.0%22)&amp;rd=true">
+    MSDN help page
+   </a>
+   has an example but it is slightly different. It was getting the two columns on the right that I could not figure out without setting a fixed height.
+  </p>
+  <p>
+   While searching for a solution I found a
+   <a href="http://stackoverflow.com/questions/717299/wpf-setting-the-width-and-height-as-a-percentage-value">
+    stackoverflow post
+   </a>
+   that provides a possible way to get what I wanted (the two rows on the left column split half and half in height). But I didn't want to get into Converters yet.
+  </p>
+  <p>
+   So I decided to try another solution. The comments in the stackoverflow post included reference to the grid control which I tried out and got working. As I little extra testing I tried adding a GridSplitter that I had come across first last week when reading the WPF MSDN pages. I needed the help of these two pages to get it sorted:
+   <a href="http://msdn.microsoft.com/en-us/library/ms743457.aspx">
+    How to: Resize Rows with a GridSplitter
+   </a>
+   &amp;
+   <a href="http://msdn.microsoft.com/en-us/library/ms742210.aspx">
+    How to: Make Sure That a GridSplitter Is Visible
+   </a>
+   . They were both found through the GridSplitter MSDN page.
+  </p>
+  <p>
+   Once I had done the window layout I then started on the code. I have previously created a windows forms app that used a TreeView so I knew of some of the ways to populate it. I think the way I've done it may be different to how the walk through does it. I create the root item manually and add the others as an item is selected. This way saves loading time if there is a lot of data in the source (in this case folders, I had done it based on SQL Server with a large complicated query). I'm guessing it will be different in the walk through since it mentions data binding.
+  </p>
+  <p>
+   After this I started to look at the list views. I did intend to use binding here, but I don't know yet if I will have done it the best way. I also was not sure how to get it displayed like the screenshot. I did look at the
+   <a href="http://msdn.microsoft.com/query/dev10.query?appId=Dev10IDEF1&amp;l=EN-US&amp;k=k(SYSTEM.WINDOWS.CONTROLS.LISTVIEW);k(VS.WPFDESIGNER);k(TargetFrameworkMoniker-%22.NETFRAMEWORK%2cVERSION%3dV4.0%22)&amp;rd=true">
+    MSDN ListView page
+   </a>
+   for help on how to format the list. I've seen on other controls the use of DataTemplate to set it up. But it didn't look like it would be that easy in this case. So I used the default GridView format and created a GridViewColumn based on an example on that page.
+  </p>
+  <p>
+   As for the coding, I created an instance of List on the window and assigned that to the ItemsSource property on the ListView (in this case the top one). Then when selecting an item in the TreeView I clear the list and populate it from the DirectoryInfo array that is returned from DirectoryInfo.GetDirectories. This worked when stepping through the code but did not display anything. I found this
+   <a href="http://social.msdn.microsoft.com/forums/en-US/wpf/thread/1a776eb7-f2a5-4eaa-9e4f-a2c03d570f35/">
+    blog post
+   </a>
+   where the poster had got in the same situation. It turned out I was using the wrong type of collection. I should have used the
+   <a href="http://msdn.microsoft.com/en-us/library/ms668604(VS.85).aspx">
+    ObservableCollection Generic Class
+   </a>
+   . Once I changed it to this it worked fine.
+  </p>
+  <p>
+   I had to make one small tweek to the code after this. I had first created the code to load the folders and files in a method that create the folder children in the TreeView. But since that is not closed the second time you click on a tree item the lists where not updated. I had to move the calls into the SelectedItemChanged event I had used on the TreeView.
+  </p>
+  <p>
+   So that covers most of the things I looked up (Google or MSDN) while writing the application. Normally I initially get to an MSDN by using the F1 help in Visual Studio, though sometimes they come up in the Google results. I do sometimes end up searching online for an answer for quite some time, but in this case it was not that long. Though I did stop searching on some bits like the Converters as I knew that would take too long and I had another method to test first.
+  </p>
+  <p>
+   My next post will look at how my version compares with the solution from the walk through.
+  </p>
+ </div>
+</div>
+<div id="section-node-tags">
+ <span class="tags-title">
+  Tags:
+ </span>
+ <span class="tags-tag">
+  CodeChallenge
+ </span>
+ |
+ <span class="tags-tag">
+  WPF
+ </span>
+ |
+ <span class="tags-tag">
+  .NET
+ </span>
+ |
+ <span class="tags-tag">
+  Programming
+ </span>
+</div>

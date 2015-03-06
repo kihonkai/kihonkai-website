@@ -1,0 +1,65 @@
+---
+layout: post
+title: WPF Collection sorting, grouping and filtering
+date: 2011-09-27 22:03:26
+date_changed: 2011-09-27 22:21:27
+permalink: /content/wpf-collection-sorting-grouping-and-filtering/
+---
+
+<div class="node" id="node-81">
+ <div id="section-node-body">
+  <p>
+   I've just finished reading the following page on MSDN
+  </p>
+  <p>
+   <a href="http://msdn.microsoft.com/en-us/library/ms752347.aspx#binding_to_collections">
+    Data Binding Overview - Binding to Collections
+   </a>
+  </p>
+  <p>
+   I have been creating small test programs in my TestBed repository on BitBucket while learning new area of the WPF system. To make it easier to quickly create and run multiple windows I setup a main window that automatically generates a list of available windows. The class used searches an assembly for any sub classes of the Window class. I also added an exclusion property to avoid listing the MainWindow the list was being create on.
+  </p>
+  <!--break-->
+  <p>
+   Since I had not read the Data Binding section when I first created it I ended up doing the sorting using a Windows Forms style method. I've been back and updated this after reading about the WPF style way of achieving this. At the moment this update has only been applied in the WPF.My.DataBinding project in the TestBed solution. Details can be found on the
+   <a href="https://bitbucket.org/kihonkai/testbed/changeset/02257ed63f45">
+    BitBucket changeset
+   </a>
+   page. I thought I would try out including hat for a change.
+  </p>
+  <p>
+   I've also come across what seems to be a nice summary of the sorting, grouping and filtering methods using XAML. Rather than repeat it here's the article
+   <a href="http://www.galasoft.ch/mydotnet/articles/article-2007081301.aspx">
+    WPF: Getting, sorting and filtering information in pure XAML (well almost)
+   </a>
+   .
+  </p>
+  <p>
+   Also it might be interesting to follow the updates of Laurent Bugnion who owns the site
+   <a href="http://www.galasoft.ch/">
+    http://www.galasoft.ch
+   </a>
+   . It looks like he is doing a lot of testing with Windows 8.
+  </p>
+ </div>
+</div>
+<div id="section-node-tags">
+ <span class="tags-title">
+  Tags:
+ </span>
+ <span class="tags-tag">
+  WPF
+ </span>
+ |
+ <span class="tags-tag">
+  .NET
+ </span>
+ |
+ <span class="tags-tag">
+  Programming
+ </span>
+ |
+ <span class="tags-tag">
+  Data Binding
+ </span>
+</div>

@@ -8,6 +8,11 @@ baseurl: ""
 url: "http://kihonkai.com" # the base hostname & protocol for your site
 github_username:  kihonkai
 
+collections:
+ content:
+  output: true
+  permalink: content/:title/
+
 # Build settings
 markdown: kramdown
 

@@ -1,0 +1,87 @@
+---
+layout: post
+title: StudyFeed - What it was and what I've learnt from it
+date: 2011-07-10 12:58:54
+date_changed: 2011-07-10 13:03:59
+permalink: /content/studyfeed-what-it-was-and-what-ive-learnt-it/
+---
+
+<div class="node" id="node-13">
+ <div id="section-node-body">
+  <p>
+   I had an idea to create an RSS feed with a selection of questions, the feed item would include only the question and would link to a website to with the questions and answers. This way you don't have to avoid reading the answer first. My primary aim for this was using it to help me study Japanese, I thought that having a short question on an RSS feed on my phone would be a useful way to do a little bit of studying throughout the day.
+  </p>
+  <p>
+   This was the first time I had looked at creating an RSS feed so that was something new, I'm sure there are plenty of things out there that can do it but I had a method in mind when I started. I was to use a small home server I have (I'm going to speak more about that in a future post, kurohako is the named used) and host my own website. I did get it setup with a domain name using
+   <a href="http://www.dyndns.com/">
+    http://www.dyndns.com/
+   </a>
+   and it mostly worked for what I wanted it to do.
+  </p>
+  <p>
+   But for some reason the RSS client I tried,
+   <a href="http://www.feedreader.com/">
+    http://www.feedreader.com/
+   </a>
+   , sometimes missed items. If I deleted the feed and created it again I was able to see all items. So that was one of the reason I have decided to stop developing this solution and go onto something different.
+  </p>
+  <p>
+   My final work on this code today was to apply the GNU GPL license, as I felt that I should apply a license to my code before releasing it. I've now made the BitBucket repositories public for the code, they can be found on my account here:
+   <a href="https://bitbucket.org/kihonkai">
+    https://bitbucket.org/kihonkai
+   </a>
+   . There are two, StudyFeed and StudyFeed_PyPHP. I'll explain the fully reasons for the fork when I post abour KuroHako in the future.
+  </p>
+  <p>
+   Now that is finished with I aim to get the alternative solution up and running so I can get back to my studying before the next stage of the Japanese course starts. I've got a bit of time since it's not till October, but I want to catch up on studying.
+  </p>
+  <p>
+   I did say in the title I would describe what I have learnt from this so here's a list of what I think I've learnt from coding this.
+  </p>
+  <ul>
+   <li>
+    Unicode, some of how it works and how to encode/decode UTF-8. Practical work was done mostly with Python
+   </li>
+   <li>
+    Use of the lxml (
+    <a href="http://lxml.de/">
+     http://lxml.de/
+    </a>
+    ) Python library for XML processing
+   </li>
+   <li>
+    How to build a valid RSS feed (
+    <a href="http://www.rssboard.org/">
+     http://www.rssboard.org/
+    </a>
+    )
+   </li>
+   <li>
+    First work done with Mercurial and BitBucket
+   </li>
+  </ul>
+  <p>
+   So while the project didn't get completed I did learn a few things from it, so it was useful in some ways.
+  </p>
+ </div>
+</div>
+<div id="section-node-tags">
+ <span class="tags-title">
+  Tags:
+ </span>
+ <span class="tags-tag">
+  StudyFeed
+ </span>
+ |
+ <span class="tags-tag">
+  Project
+ </span>
+ |
+ <span class="tags-tag">
+  Learning
+ </span>
+ |
+ <span class="tags-tag">
+  BitBucket
+ </span>
+</div>

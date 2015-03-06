@@ -1,0 +1,53 @@
+---
+layout: post
+title: lxml and pretty print
+date: 2011-06-26 23:19:26
+date_changed: 2011-06-26 23:19:26
+permalink: /content/lxml-and-pretty-print/
+---
+
+<div class="node" id="node-9">
+ <div id="section-node-body">
+  <p>
+   I've been using a library that I found called lxml (
+   <a href="http://lxml.de/">
+    http://lxml.de/
+   </a>
+   ). It's far easier to work with compared to the built in XML processing in Python. It is also capable of working with unicode which I will need (I will be putting Japanese text in my XML :)).
+  </p>
+  <p>
+   So it was all going well, I've got a good deal more coding done tonight, but I got to outputting my XML to a file. It was pretty printing it fine for the first element I added and save or if I added more than one before saving. But then if I opened the file again to append another item it was not pretty printing the new item.
+  </p>
+  <p>
+   I had already come across this FAQ entry on the lxml website:
+   <a href="http://lxml.de/FAQ.html#why-doesn-t-the-pretty-print-option-reformat-my-xml-output">
+    http://lxml.de/FAQ.html#why-doesn-t-the-pretty-print-option-reformat-my-...
+   </a>
+  </p>
+  <p>
+   But for some reason I didn't read it fully, I spent longer than I should trying different things. It turned out it was the opening that was the issue. I just needed to add this option:
+  </p>
+  <p>
+   remove_blank_text=True
+  </p>
+  <p>
+   as explained on that page. It's annoying how something quite small can take up a lot of time.
+  </p>
+ </div>
+</div>
+<div id="section-node-tags">
+ <span class="tags-title">
+  Tags:
+ </span>
+ <span class="tags-tag">
+  Solved
+ </span>
+ |
+ <span class="tags-tag">
+  Python
+ </span>
+ |
+ <span class="tags-tag">
+  lxml
+ </span>
+</div>

@@ -1,0 +1,44 @@
+---
+layout: post
+title: WPF Border strange gaps
+date: 2011-09-25 21:25:19
+date_changed: 2011-09-25 21:26:15
+permalink: /content/wpf-border-strange-gaps/
+---
+
+<div class="node" id="node-78">
+ <div id="section-node-body">
+  <p>
+   I was testing out how to use the WPF grid and borders. I noticed a small gap between adjacent borders, it doesn't always appear. I ended up finding it was related to the use of device-independent units in the WPF graphics system.
+  </p>
+  <p>
+   This is explained in full on the MSDN article:
+   <a href="http://msdn.microsoft.com/en-us/library/aa970908(v=vs.85).aspx#guidelines">
+    Pixel Snapping in WPF Applications
+   </a>
+  </p>
+  <p>
+   Setting the SnapsToDevicePixels property to true prevents the odd affects.
+  </p>
+ </div>
+</div>
+<div id="section-node-tags">
+ <span class="tags-title">
+  Tags:
+ </span>
+ <span class="tags-tag">
+  WPF
+ </span>
+ |
+ <span class="tags-tag">
+  .NET
+ </span>
+ |
+ <span class="tags-tag">
+  Programming
+ </span>
+ |
+ <span class="tags-tag">
+  Solved
+ </span>
+</div>

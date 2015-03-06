@@ -1,0 +1,43 @@
+---
+layout: post
+title: ListConverter - 0.1.0.0 Complete
+date: 2011-08-20 10:59:20
+date_changed: 2011-08-20 10:59:20
+permalink: /content/listconverter-0100-complete/
+---
+
+<div class="node" id="node-29">
+ <div id="section-node-body">
+  <p>
+   At the moment I've completed the very basic version of what I wanted. It does have some unit tests, though I've yet to test coverage to see how well they are doing. I tried to use some planning rather than just jumping into the coding. Though I didn't do a great deal with this work.
+  </p>
+  <p>
+   For now I have complied the new version and uploaded it to BitBucket here:
+   <a href="https://bitbucket.org/kihonkai/listconverter/downloads">
+    https://bitbucket.org/kihonkai/listconverter/downloads
+   </a>
+  </p>
+  <p>
+   I think I might leave this project along for now. If I can find someone to work with I would like to try and create something that someone else could use.
+  </p>
+  <p>
+   Something I came across while working today was a change to a StyleCop rule (see this issue
+   <a href="http://stylecop.codeplex.com/workitem/6694">
+    http://stylecop.codeplex.com/workitem/6694
+   </a>
+   ). Basically it compares the use of the build in "string" version the "String" class. Personally I prefer using the class for static content like String.Format or String.Empty. But the change to the rule means I cannot do that correctly now with the rule enabled. For now I have disabled it as I prefer my view on it. I'm going to suggest splitting it into two rules to see if that might be take up. I do agree that the built in name should be used for variable declarations though. I wonder what other people think of this.
+  </p>
+ </div>
+</div>
+<div id="section-node-tags">
+ <span class="tags-title">
+  Tags:
+ </span>
+ <span class="tags-tag">
+  ListConverter
+ </span>
+ |
+ <span class="tags-tag">
+  StyleCop
+ </span>
+</div>

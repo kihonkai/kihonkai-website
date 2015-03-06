@@ -1,0 +1,129 @@
+---
+layout: post
+title: Caliburn.Micro Login Window sample
+date: 2012-08-22 20:12:05
+date_changed: 2012-08-22 20:35:15
+permalink: /content/caliburnmicro-login-window-sample/
+---
+
+<div class="node" id="node-90">
+ <div id="section-node-body">
+  <p>
+   Last week I noticed a
+   <a href="http://caliburnmicro.codeplex.com/discussions/391974">
+    question
+   </a>
+   related to Caliburn.Micro that I was interested in. So I decided to have a go at coding a solution. While I was thinking about it someone posted an
+   <a href="http://stackoverflow.com/a/12013139/647292">
+    answer
+   </a>
+   to the post on
+   <a href="http://stackoverflow.com/">
+    stackoverflow.com
+   </a>
+   . While it wasn't a complete solution I had a go coding that and it does work.
+  </p>
+  <p>
+   But I decided to attempt it how the original author wanted it done. Today I thought about using the IEventAggregator service and the idea of a separate "Conductor" I got from reading
+   <a href="http://neverindoubtnet.blogspot.co.uk/2009/05/birth-and-death-of-m-v-vm-triads.html">
+    Birth and Death of M-V-VM Triads
+   </a>
+   .
+  </p>
+  <p>
+   So this is how the app basically works:
+  </p>
+  <ul>
+   <li>
+    AppBootstrapper does not use the Genetic version of Bootstrapper. It overloads OnStartup
+   </li>
+   <li>
+    OnStartup is used to create a LoginConductor class
+   </li>
+   <li>
+    LoginConductor basically handles events from for IEventAggregator. OnStartup publishes the LoginEvent to get things started
+   </li>
+   <li>
+    The LoginEvent an instance of LoginWindow to be created and shown. This is the part that's not true to the MVVM style but if you have a fixed requirement I don't see any harm in using it. Done right you should be able to replace the real version with a Mock version for unit testing still.
+   </li>
+   <li>
+    When a login event is handled and is valid it uses the WindowsManager of Caliburn.Micro to open the ViewModel based main window
+   </li>
+   <li>
+    The logout and exit buttons both use events change the state of the system.
+   </li>
+   <li>
+    The logout event closes the main window and uses the Login event to open the LoginWindow again
+   </li>
+  </ul>
+  <p>
+   To be honest I don't think this is a perfect solution for the following reasons:
+  </p>
+  <ul>
+   <li>
+    I'm currently not totally sure it releases memory efficiently with the events and repeating the logout/login process
+   </li>
+   <li>
+    LoginConductor is probably something that could be done using IConductor or one of the existing base classes
+   </li>
+   <li>
+    I didn't try IConductor yet since most of it is focused around Silverlight and I'm not very familiar with that to fully understand demo's of it
+   </li>
+   <li style="list-style: none; display: inline">
+    <ul>
+     <li style="list-style: none; display: inline">
+      <p>
+       Another thing I had thought about is the HelloScreens sample that comes with Caliburn.Micro, Which is Silverlight but someone recently posted about a
+       <a href="http://caliburnmicro.codeplex.com/discussions/392246">
+        WPF version of HelloScreens
+       </a>
+       . One issue I felt with the HelloScreens sample is that it adds a lot of extra "Framework" code to the system which doesn't currently have a lot of documentation in the code though the page
+       <a href="http://caliburnmicro.codeplex.com/wikipage?title=Screens%2c%20Conductors%20and%20Composition&amp;referringTitle=Documentation">
+        Screens, Conductors and Composition
+       </a>
+       in the Caliburn.Micro documentation does have quite a bit of detail. I will probably have to read through that page again.
+      </p>
+      <p>
+       Even though I don't think its the best solution I've included the source code just in case it's of any use to anyone.
+      </p>
+      <p>
+       One of the main issues with this test was that it contains a Window that is not built for MVVM so it required different processing. I think what I will do next is try and work with a the Conductors built into Caliburn.Micro to see what I can manage with a full MVVM application as that is what I will be able to create in the app that I need a login screen for.
+      </p>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </div>
+ <div id="section-node-attachments">
+  <h3>
+   Attachments:
+  </h3>
+  <ul>
+   <li>
+    <a class="attachments" href="{{site.baseurl}}/files/CaliburnMicro.LoginTestExternal.zip">
+     CaliburnMicro.LoginTestExternal.zip
+    </a>
+   </li>
+  </ul>
+ </div>
+</div>
+<div id="section-node-tags">
+ <span class="tags-title">
+  Tags:
+ </span>
+ <span class="tags-tag">
+  WPF
+ </span>
+ |
+ <span class="tags-tag">
+  Caliburn.Micro
+ </span>
+ |
+ <span class="tags-tag">
+  Sample
+ </span>
+ |
+ <span class="tags-tag">
+  MVVM
+ </span>
+</div>

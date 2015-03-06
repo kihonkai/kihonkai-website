@@ -1,0 +1,60 @@
+---
+layout: post
+title: WPF Grid Border centering
+date: 2011-09-25 22:24:59
+date_changed: 2011-09-25 22:25:07
+permalink: /content/wpf-grid-border-centering/
+---
+
+<div class="node" id="node-79">
+ <div id="section-node-body">
+  <p>
+   I was attempting to create a grid with borders, using the same test app as my
+   <a href="#">
+    last post
+   </a>
+   . I thought it wasn't going to work, then I found a
+   <a href="http://codebetter.com/stevehebert/2008/04/16/creating-a-horizontal-gridsplitter-for-real/">
+    webpage
+   </a>
+   that linked to an MSDN
+   <a href="http://msdn.microsoft.com/en-us/library/bb675313.aspx">
+    article How to: Create User-Resizable Applications with GridSplitter
+   </a>
+   .
+  </p>
+  <p>
+   For some reason that guy didn't think the MSDN articles worked. I've not been through all of the code I gained my answer without doing so. Maybe he's right, maybe he's not.
+  </p>
+  <p>
+   The solution I found was to create the separate grid row/column for the borders, the linked pages do talk about the GridSplitter, I was going to test using that rather than a border. Since the pages suggest the use of a separate row/column I figure that the GridSplitter works in the same way. I guess the way the WPF layout system works prevents the collapse behavior that web developer would be familiar with from using a HTML table (
+   <a href="http://www.w3.org/TR/CSS2/tables.html#collapsing-borders">
+    see here
+   </a>
+   if interested).
+  </p>
+  <p>
+   For now I think that might be enough practice with the grid control. I don't really need to be able to do this right now, but I have learnt a few bits from doing this testing.
+  </p>
+ </div>
+</div>
+<div id="section-node-tags">
+ <span class="tags-title">
+  Tags:
+ </span>
+ <span class="tags-tag">
+  WPF
+ </span>
+ |
+ <span class="tags-tag">
+  .NET
+ </span>
+ |
+ <span class="tags-tag">
+  Programming
+ </span>
+ |
+ <span class="tags-tag">
+  Solved
+ </span>
+</div>
