@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "From Drupal To Jekyll"
-date: 2015-03-21 11:39
+date: 2015-03-28 10:50
 ---
 
 Earlier this month I created the post [Previous Content Restored]({% post_url 2015-03-07-previous-content-restore %}) after I had finally got my existing content back online.  Since then I've not done anything besides read about Jekyll online.
